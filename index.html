@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafsan Sanny - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .dark {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        .dark .bg-white {
+            background-color: #2d3748;
+        }
+        .dark .bg-gray-50 {
+            background-color: #1a202c;
+        }
+        .dark .text-gray-800 {
+            color: #e2e8f0;
+        }
+        .dark .text-gray-700 {
+            color: #cbd5e0;
+        }
+        .dark .text-gray-600 {
+            color: #a0aec0;
+        }
+        .dark .border-gray-200 {
+            border-color: #4a5568;
+        }
+        .dark .bg-gray-800 {
+            background-color: #1a202c;
+        }
+        .dark .bg-blue-50 {
+            background-color: #2c5282;
+        }
+        .dark .bg-purple-50 {
+            background-color: #553c9a;
+        }
+        .dark .shadow-md {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 3px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: #3b82f6;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #3b82f6;
+            border: 2px solid white;
+        }
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e5e7eb;
+            overflow: hidden;
+        }
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 4px;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .active-nav::after {
+            width: 100%;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">Rafsan Sanny</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link active-nav">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="md:hidden focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white w-full px-6 py-3" id="mobile-menu">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="nav-link active-nav">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-blue-600">Rafsan Sanny</span></h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-6">QA Specialist | Data Analyst | Team Leader</p>
+                <p class="text-gray-700 mb-8">Creative problem-solver with a structured, logical mindset. Experienced in QA, data analysis, and team leadership with a focus on efficient operations and sustainable growth.</p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">Contact Me</a>
+                    <a href="#projects" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition duration-300">View Projects</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                    <img src="./img/profile_img.jpg" alt="Profile" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 section-title">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <p class="text-gray-700 mb-6">I am a dedicated professional with expertise in quality assurance, data analysis, and team leadership. My structured and logical approach to problem-solving has helped me excel in various roles across different industries.</p>
+                    <p class="text-gray-700 mb-6">With a strong foundation in computer science and engineering, I bring technical knowledge combined with practical experience in operations management and client servicing.</p>
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-800">Personal Information</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <p class="font-medium text-gray-700">Name:</p>
+                                <p>Rafsan Sanny</p>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-700">Email:</p>
+                                <p>rafsansanny01@gmail.com</p>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-700">Phone:</p>
+                                <p>+88 01646 297858</p>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-700">Address:</p>
+                                <p>House #65, Road #06, DIT Project, Merul Badda, Dhaka-1212</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Languages</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Bengali (Native)</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>English (Proficient)</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Hindi (Conversational)</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mt-8 mb-4">Interests</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Problem Solving</span>
+                        <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Data Analysis</span>
+                        <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full">Team Leadership</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Quality Assurance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 section-title">Education</h2>
+            <div class="space-y-8 relative">
+                <!-- IUBAT -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md relative timeline-item pl-8">
+                    <div class="timeline-dot"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-semibold text-blue-600">BSc in Computer Science and Engineering</h3>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2021</span>
+                    </div>
+                    <p class="text-gray-600 mb-2">International University of Business Agriculture and Technology (IUBAT)</p>
+                    <p class="font-medium">CGPA: 3.11</p>
+                </div>
+                
+                <!-- Comilla Govt. College -->
+                <div class="bg-white p-6 rounded-lg shadow-md relative timeline-item pl-8">
+                    <div class="timeline-dot"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-semibold text-blue-600">HSC (Higher Secondary Certificate)</h3>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2015</span>
+                    </div>
+                    <p class="text-gray-600 mb-2">Comilla Govt. College</p>
+                    <p class="font-medium">CGPA: 3.67</p>
+                </div>
+                
+                <!-- Comilla Modern High School -->
+                <div class="bg-white p-6 rounded-lg shadow-md relative timeline-item pl-8">
+                    <div class="timeline-dot"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-semibold text-blue-600">SSC (Secondary School Certificate)</h3>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2013</span>
+                    </div>
+                    <p class="text-gray-600 mb-2">Comilla Modern High School</p>
+                    <p class="font-medium">CGPA: 4.75</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 section-title">Professional Experience</h2>
+            <div class="space-y-8 relative">
+                <!-- Quantanite -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md relative timeline-item pl-8">
+                    <div class="timeline-dot"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-semibold text-blue-600">Team Leader</h3>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Dec 2022 – Present</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 font-medium">Quantanite</p>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li>QA of AI systems</li>
+                        <li>Raw data analysis & reporting</li>
+                        <li>Provided operational guidelines</li>
+                        <li>Client servicing & monthly reporting</li>
+                        <li>Developed effective solutions</li>
+                    </ul>
+                </div>
+                
+                <!-- bKash Limited -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md relative timeline-item pl-8">
+                    <div class="timeline-dot"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-semibold text-blue-600">Officer, Service Quality & Compliance</h3>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Apr 2022 – Sep 2022</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 font-medium">bKash Limited</p>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li>Team coordination & compliance audits</li>
+                        <li>Internal & external work auditing</li>
+                        <li>Customer insight analysis & reporting</li>
+                    </ul>
+                </div>
+                
+                <!-- Velocita Infosys -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md relative timeline-item pl-8">
+                    <div class="timeline-dot"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-semibold text-blue-600">Back-End Executive</h3>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Feb 2021 – May 2021</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 font-medium">Velocita Infosys</p>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li>Report and documentation creation</li>
+                        <li>Project design & training manual preparation</li>
+                        <li>Salary & roster report management</li>
+                    </ul>
+                </div>
+                
+                <!-- Times Group -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md relative timeline-item pl-8">
+                    <div class="timeline-dot"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-semibold text-blue-600">Customer Executive</h3>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Dec 2020 – Jan 2021</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 font-medium">Times Group</p>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li>Client support and issue resolution</li>
+                        <li>Report generation and customer interaction</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 section-title">Technical Skills</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Programming Languages</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>HTML</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>CSS</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Python</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>PHP</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>C+</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Other Skills</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Bootstrap</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>MySQL</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>MS Office</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mt-8 mb-4">Soft Skills</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Client Service</span>
+                        <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Team Leadership</span>
+                        <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full">Report Writing</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Problem Solving</span>
+                        <span class="bg-red-100 text-red-800 px-4 py-2 rounded-full">Data Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 section-title">Projects</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Flight Management System -->
+                <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 project-card">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-blue-700 flex items-center justify-center">
+                        <i class="fas fa-plane text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Flight Management System</h3>
+                        <p class="text-gray-600 mb-4">A comprehensive system for managing flight schedules, bookings, and passenger information.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">HTML</span>
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">CSS</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pharmacy Management System -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 project-card">
+                    <div class="h-48 bg-gradient-to-r from-purple-500 to-purple-700 flex items-center justify-center">
+                        <i class="fas fa-pills text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Pharmacy Management System</h3>
+                        <p class="text-gray-600 mb-4">An inventory and sales management system for pharmacies with reporting capabilities.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Restaurant Management System -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 project-card">
+                    <div class="h-48 bg-gradient-to-r from-green-500 to-green-700 flex items-center justify-center">
+                        <i class="fas fa-utensils text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Restaurant Management System</h3>
+                        <p class="text-gray-600 mb-4">A complete solution for managing restaurant operations from orders to billing.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">PHP</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">MySQL</span>
+                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 section-title">Contact Me</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Get in Touch</h3>
+                    <p class="text-gray-700 mb-6">Feel free to reach out for collaborations or just a friendly hello.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Address</h4>
+                                <p class="text-gray-600">House #65, Road #06, DIT Project, Merul Badda, Dhaka-1212</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Phone</h4>
+                                <p class="text-gray-600">+88 01646 297858</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <p class="text-gray-600">rafsansanny01@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold mb-4">Reference</h3>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <p class="font-medium">Md. Abdur Rahman</p>
+                            <p class="text-gray-600">Assistant Director, Bangladesh Bank</p>
+                            <p class="text-gray-600">Phone: 01611 119778</p>
+                        </div>
+						<br>
+                             <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <p class="font-medium">Md. Arifur Rahman</p>
+                            <p class="text-gray-600">Mobile Application Developer, Bdjobs.com Ltd.</p>
+                            <p class="text-gray-600">Phone: 01521526371</p>
+                        </div>
+                    </div>
+                </div>
+                
+                    <form action="https://formspree.io/f/xblyzlrl" method="post">
+
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 mb-2">Your Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 mb-2">Your Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium w-full transition duration-300">Send Message</button>
+                    </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-2xl font-bold">Rafsan Sanny</h3>
+                    <p class="text-gray-400">QA Specialist | Data Analyst | Team Leader</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Rafsan Sanny. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active-nav');
+                });
+                this.classList.add('active-nav');
+            });
+        });
+
+        // Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Check for saved theme preference or use system preference
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            document.body.classList.add('dark');
+        }
+        
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark');
+            const theme = document.body.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    currentSection = '#' + section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active-nav');
+                if (link.getAttribute('href') === currentSection) {
+                    link.classList.add('active-nav');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
