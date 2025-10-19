@@ -4,684 +4,951 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rafsan Sanny - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        .dark {
-            background-color: #1a202c;
-            color: #e2e8f0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .dark .bg-white {
-            background-color: #2d3748;
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #94a3b8;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #1e293b;
+            --lighter: #334155;
+            --text: #e2e8f0;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
-        .dark .bg-gray-50 {
-            background-color: #1a202c;
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--darker);
+            overflow-x: hidden;
         }
-        .dark .text-gray-800 {
-            color: #e2e8f0;
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--lighter);
         }
-        .dark .text-gray-700 {
-            color: #cbd5e0;
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .dark .text-gray-600 {
-            color: #a0aec0;
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .dark .border-gray-200 {
-            border-color: #4a5568;
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
         }
-        .dark .bg-gray-800 {
-            background-color: #1a202c;
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
         }
-        .dark .bg-blue-50 {
-            background-color: #2c5282;
+
+        nav a:hover {
+            color: var(--primary);
         }
-        .dark .bg-purple-50 {
-            background-color: #553c9a;
-        }
-        .dark .shadow-md {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-        }
-        
-        .section-title {
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--darker);
+            color: var(--text);
+            padding: 6rem 2rem 4rem;
             position: relative;
-            display: inline-block;
         }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .hero-text {
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .hero-text .greeting {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--text);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-text h1 .highlight {
+            color: var(--primary);
+        }
+
+        .hero-text .title {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+            font-weight: 400;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-text .description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: var(--darker);
+            transform: translateY(-5px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--darker);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 50%;
-            height: 3px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            border-radius: 3px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
         }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -20px;
+            left: -2.5rem;
             top: 0;
-            width: 2px;
-            height: 100%;
-            background-color: #3b82f6;
-        }
-        .timeline-dot {
-            position: absolute;
-            left: -26px;
-            top: 5px;
             width: 12px;
             height: 12px;
+            background: var(--primary);
             border-radius: 50%;
-            background-color: #3b82f6;
-            border: 2px solid white;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary);
         }
-        .skill-bar {
-            height: 8px;
-            border-radius: 4px;
-            background-color: #e5e7eb;
-            overflow: hidden;
+
+        .timeline-item h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
         }
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            border-radius: 4px;
+
+        .timeline-item .company {
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.3rem;
         }
-        .nav-link {
-            position: relative;
+
+        .timeline-item .duration {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
         }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #3b82f6;
-            transition: width 0.3s ease;
+
+        .timeline-item ul {
+            margin-left: 1.5rem;
+            color: var(--secondary);
         }
-        .nav-link:hover::after {
-            width: 100%;
+
+        .timeline-item li {
+            margin-bottom: 0.5rem;
         }
-        .active-nav::after {
-            width: 100%;
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
-        .project-card:hover {
+
+        .skill-category {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .skill-category:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text);
+            border: 2px solid var(--lighter);
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: var(--darker);
+            border-color: var(--primary);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+            border: 1px solid var(--lighter);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        }
+
+        .project-card .project-icon {
+            background: var(--gradient);
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .project-card .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-card h3 {
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: var(--secondary);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid var(--lighter);
+        }
+
+        .contact-item:hover {
+            background: var(--primary);
+            color: var(--darker);
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .contact-item:hover i {
+            color: var(--darker);
+        }
+
+        .contact-item a {
+            color: var(--text);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contact-item:hover a {
+            color: var(--darker);
+        }
+
+        .contact-item h3 {
+            color: var(--text);
+        }
+
+        .contact-item:hover h3 {
+            color: var(--darker);
+        }
+
+        .contact-item p {
+            color: var(--text);
+        }
+
+        .contact-item:hover p {
+            color: var(--darker);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--text);
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--lighter);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #contact > div {
+                grid-template-columns: 1fr !important;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .hero-text .greeting {
+                font-size: 1rem;
+            }
+
+            .hero-text .title {
+                font-size: 1.3rem;
+            }
+
+            .hero-text .description {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+<body>
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white shadow-md z-50">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-blue-600">Rafsan Sanny</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="nav-link active-nav">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#education" class="nav-link">Education</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            <button class="md:hidden focus:outline-none" id="menu-toggle">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
-        </div>
-        <!-- Mobile Menu -->
-        <div class="md:hidden hidden bg-white w-full px-6 py-3" id="mobile-menu">
-            <div class="flex flex-col space-y-3">
-                <a href="#home" class="nav-link active-nav">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#education" class="nav-link">Education</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
+    <nav>
+        <div class="container">
+            <div class="logo">RS</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-8 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-blue-600">Rafsan Sanny</span></h1>
-                <p class="text-xl md:text-2xl text-gray-600 mb-6">QA Specialist | Data Analyst | Team Leader</p>
-                <p class="text-gray-700 mb-8">Creative problem-solver with a structured, logical mindset. Experienced in QA, data analysis, and team leadership with a focus on efficient operations and sustainable growth.</p>
-                <div class="flex space-x-4">
-                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">Contact Me</a>
-                    <a href="#projects" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition duration-300">View Projects</a>
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
-                    <img src="./img/profile_img.jpg" alt="Profile" class="w-full h-full object-cover">
-                </div>
-            </div>
-        </div>
-    </section>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="greeting">Welcome to my Portfolio</div>
+                <h1>Hi, I'm <span class="highlight">Rafsan Sanny</span></h1>
+                <div class="title">Senior Associate - Research & Development</div>
+                <p class="description">A highly motivated and dependable professional seeking an opportunity to contribute my skills and experiences in a dynamic role with clear pathways for career advancement. I bring a strong commitment to integrity, operational efficiency, and continuous personal and professional development.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+              <a href="./cv/Rafsan Sanny.pdf" class="btn btn-secondary" target="_blank">
+  <i class="fas fa-briefcase"></i> View CV
+</a>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 section-title">About Me</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <p class="text-gray-700 mb-6">I am a dedicated professional with expertise in quality assurance, data analysis, and team leadership. My structured and logical approach to problem-solving has helped me excel in various roles across different industries.</p>
-                    <p class="text-gray-700 mb-6">With a strong foundation in computer science and engineering, I bring technical knowledge combined with practical experience in operations management and client servicing.</p>
-                    <div class="bg-blue-50 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-blue-800">Personal Information</h3>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <p class="font-medium text-gray-700">Name:</p>
-                                <p>Rafsan Sanny</p>
-                            </div>
-                            <div>
-                                <p class="font-medium text-gray-700">Email:</p>
-                                <p>rafsansanny01@gmail.com</p>
-                            </div>
-                            <div>
-                                <p class="font-medium text-gray-700">Phone:</p>
-                                <p>+88 01646 297858</p>
-                            </div>
-                            <div>
-                                <p class="font-medium text-gray-700">Address:</p>
-                                <p>House #65, Road #06, DIT Project, Merul Badda, Dhaka-1212</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Languages</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span>Bengali (Native)</span>
-                                <span>100%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 100%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span>English (Proficient)</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span>Hindi (Conversational)</span>
-                                <span>70%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 70%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-semibold mt-8 mb-4">Interests</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Problem Solving</span>
-                        <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Data Analysis</span>
-                        <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full">Team Leadership</span>
-                        <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Quality Assurance</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 section-title">Education</h2>
-            <div class="space-y-8 relative">
-                <!-- IUBAT -->
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md relative timeline-item pl-8">
-                    <div class="timeline-dot"></div>
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-blue-600">BSc in Computer Science and Engineering</h3>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2021</span>
-                    </div>
-                    <p class="text-gray-600 mb-2">International University of Business Agriculture and Technology (IUBAT)</p>
-                    <p class="font-medium">CGPA: 3.11</p>
-                </div>
-                
-                <!-- Comilla Govt. College -->
-                <div class="bg-white p-6 rounded-lg shadow-md relative timeline-item pl-8">
-                    <div class="timeline-dot"></div>
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-blue-600">HSC (Higher Secondary Certificate)</h3>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2015</span>
-                    </div>
-                    <p class="text-gray-600 mb-2">Comilla Govt. College</p>
-                    <p class="font-medium">CGPA: 3.67</p>
-                </div>
-                
-                <!-- Comilla Modern High School -->
-                <div class="bg-white p-6 rounded-lg shadow-md relative timeline-item pl-8">
-                    <div class="timeline-dot"></div>
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-blue-600">SSC (Secondary School Certificate)</h3>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2013</span>
-                    </div>
-                    <p class="text-gray-600 mb-2">Comilla Modern High School</p>
-                    <p class="font-medium">CGPA: 4.75</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/rafsan-sanny01" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:rafsansanny01@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+8801646297858" title="Phone"><i class="fas fa-phone"></i></a>
+                    <a href="https://rafsansanny01.github.io/portfolio" target="_blank" title="Portfolio"><i class="fas fa-globe"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 section-title">Professional Experience</h2>
-            <div class="space-y-8 relative">
-                <!-- Quantanite -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md relative timeline-item pl-8">
-                    <div class="timeline-dot"></div>
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-blue-600">Team Leader</h3>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Dec 2022 – Present</span>
-                    </div>
-                    <p class="text-gray-600 mb-4 font-medium">Quantanite</p>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li>QA of AI systems</li>
-                        <li>Raw data analysis & reporting</li>
-                        <li>Provided operational guidelines</li>
-                        <li>Client servicing & monthly reporting</li>
-                        <li>Developed effective solutions</li>
-                    </ul>
-                </div>
-                
-                <!-- bKash Limited -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md relative timeline-item pl-8">
-                    <div class="timeline-dot"></div>
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-blue-600">Officer, Service Quality & Compliance</h3>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Apr 2022 – Sep 2022</span>
-                    </div>
-                    <p class="text-gray-600 mb-4 font-medium">bKash Limited</p>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li>Team coordination & compliance audits</li>
-                        <li>Internal & external work auditing</li>
-                        <li>Customer insight analysis & reporting</li>
-                    </ul>
-                </div>
-                
-                <!-- Velocita Infosys -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md relative timeline-item pl-8">
-                    <div class="timeline-dot"></div>
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-blue-600">Back-End Executive</h3>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Feb 2021 – May 2021</span>
-                    </div>
-                    <p class="text-gray-600 mb-4 font-medium">Velocita Infosys</p>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li>Report and documentation creation</li>
-                        <li>Project design & training manual preparation</li>
-                        <li>Salary & roster report management</li>
-                    </ul>
-                </div>
-                
-                <!-- Times Group -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md relative timeline-item pl-8">
-                    <div class="timeline-dot"></div>
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-blue-600">Customer Executive</h3>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Dec 2020 – Jan 2021</span>
-                    </div>
-                    <p class="text-gray-600 mb-4 font-medium">Times Group</p>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li>Client support and issue resolution</li>
-                        <li>Report generation and customer interaction</li>
-                    </ul>
-                </div>
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Senior Associate - Research & Development</h3>
+                <div class="company">Quantanite Ltd. - Dhaka, Bangladesh</div>
+                <span class="duration">Dec 2022 - Present</span>
+                <ul>
+                    <li>Expertise in data processing, utilizing advanced functions and tools in Microsoft Excel to clean, manipulate, and analyse large sets of data</li>
+                    <li>Collaborated with cross-functional teams to gather requirements and implement data-driven solutions</li>
+                    <li>Utilized advanced Excel functions such as data validation to streamline data analysis and reporting processes</li>
+                    <li>Reviewed videos to ensure accurate algorithm detection of destruction</li>
+                    <li>Worked on projects to improve the company's data-driven decision-making process</li>
+                    <li>Communicated with clients to gather requirements, provide updates, and ensure satisfaction with data solutions</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Officer - Services Quality and Compliance Management</h3>
+                <div class="company">bKash - Dhaka, Bangladesh</div>
+                <span class="duration">Apr 2022 - Sep 2022</span>
+                <ul>
+                    <li>Served as Team Coordinator ensuring effective management of team members in alignment with organizational policies</li>
+                    <li>Conducted audits of both internal and external operations, while coordinating activities within the commercial division</li>
+                    <li>Oversaw compliance matters and provided strategic guidance to ensure seamless business operations</li>
+                    <li>Monitored daily customer insights and coordinated with the trade marketing team for timely follow-ups</li>
+                    <li>Compiled and submitted segmented weekly reports per organizational requirements</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Admin - Foreign Project</h3>
+                <div class="company">Velocita Infosys - Dhaka, Bangladesh</div>
+                <span class="duration">Feb 2021 - May 2021</span>
+                <ul>
+                    <li>Prepared and streamlined reports, documentation notes, and salary statements</li>
+                    <li>Designed and implemented comprehensive project plans</li>
+                    <li>Developed and maintained accurate roster reports</li>
+                    <li>Created and organized training manuals to enhance team capabilities</li>
+                    <li>Crafted professional diagrams for effective project presentations</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Customer Executive - Services Management</h3>
+                <div class="company">Times Group - Dhaka, Bangladesh</div>
+                <span class="duration">Dec 2020 - Jan 2021</span>
+                <ul>
+                    <li>Managed and resolved customer queries ensuring exceptional service delivery</li>
+                    <li>Provided comprehensive customer support and client services</li>
+                    <li>Handled client calls and delivered effective solutions promptly</li>
+                    <li>Prepared and analyzed monthly reports to track performance and service outcomes</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 section-title">Technical Skills</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Programming Languages</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span>HTML</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span>CSS</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span>Python</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span>PHP</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span>C+</span>
-                                <span>70%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 70%"></div>
-                            </div>
-                        </div>
-                    </div>
+    <section id="skills">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Technical Skills</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Data Structures</span>
+                    <span class="skill-tag">Algorithms</span>
+                    <span class="skill-tag">OOP</span>
                 </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Other Skills</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span>Bootstrap</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span>MySQL</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span>MS Office</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-semibold mt-8 mb-4">Soft Skills</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Client Service</span>
-                        <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Team Leadership</span>
-                        <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full">Report Writing</span>
-                        <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Problem Solving</span>
-                        <span class="bg-red-100 text-red-800 px-4 py-2 rounded-full">Data Analysis</span>
-                    </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-tools"></i> Tools & Software</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Visual Studio Code</span>
+                    <span class="skill-tag">Excel</span>
+                    <span class="skill-tag">Canva</span>
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">Adobe XD</span>
+                    <span class="skill-tag">Adobe Illustrator</span>
+                    <span class="skill-tag">Adobe Photoshop</span>
+                    <span class="skill-tag">Microsoft Office</span>
+                    <span class="skill-tag">Invideo AI</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-lightbulb"></i> Soft Skills</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Communication</span>
+                    <span class="skill-tag">Public Speaking</span>
+                    <span class="skill-tag">Time Management</span>
+                    <span class="skill-tag">Adaptability</span>
+                    <span class="skill-tag">Leadership</span>
+                    <span class="skill-tag">Problem Solving</span>
+                    <span class="skill-tag">Team Collaboration</span>
+                    <span class="skill-tag">Analytical Thinking</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-briefcase"></i> Professional Skills</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Project Management</span>
+                    <span class="skill-tag">E-learning</span>
+                    <span class="skill-tag">Content Development</span>
+                    <span class="skill-tag">Data Analysis</span>
+                    <span class="skill-tag">Quality Assurance</span>
+                    <span class="skill-tag">Compliance Management</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 section-title">Projects</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Flight Management System -->
-                <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 project-card">
-                    <div class="h-48 bg-gradient-to-r from-blue-500 to-blue-700 flex items-center justify-center">
-                        <i class="fas fa-plane text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Flight Management System</h3>
-                        <p class="text-gray-600 mb-4">A comprehensive system for managing flight schedules, bookings, and passenger information.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">HTML</span>
-                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">CSS</span>
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">MySQL</span>
-                        </div>
-                    </div>
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fas fa-plane"></i>
                 </div>
-                
-                <!-- Pharmacy Management System -->
-                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 project-card">
-                    <div class="h-48 bg-gradient-to-r from-purple-500 to-purple-700 flex items-center justify-center">
-                        <i class="fas fa-pills text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Pharmacy Management System</h3>
-                        <p class="text-gray-600 mb-4">An inventory and sales management system for pharmacies with reporting capabilities.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">MySQL</span>
-                        </div>
-                    </div>
+                <div class="project-content">
+                    <h3>Flight Management System (FMS)</h3>
+                    <p>Built a website using PHP for flight monitoring and data management with styled HTML and CSS.</p>
                 </div>
-                
-                <!-- Restaurant Management System -->
-                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 project-card">
-                    <div class="h-48 bg-gradient-to-r from-green-500 to-green-700 flex items-center justify-center">
-                        <i class="fas fa-utensils text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Restaurant Management System</h3>
-                        <p class="text-gray-600 mb-4">A complete solution for managing restaurant operations from orders to billing.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">PHP</span>
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">MySQL</span>
-                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Bootstrap</span>
-                        </div>
-                    </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fas fa-pills"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Pharmacy Management System (PMS)</h3>
+                    <p>Developed a C++ and MySQL-based prescription and billing system with order and search features.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Restaurant Management System (RMS)</h3>
+                    <p>Created a C++-based order, billing, and payment management system.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>B.Sc. in Computer Science and Engineering</h3>
+                <div class="company">IUBAT - International University of Business Agriculture and Technology</div>
+                <span class="duration">2017 - 2021</span>
+                <p style="color: var(--secondary); margin-top: 0.5rem;">Dhaka, Bangladesh</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Higher Secondary Certificate (Science)</h3>
+                <div class="company">Cumilla Govt. College</div>
+                <span class="duration">2013 - 2015</span>
+                <p style="color: var(--secondary); margin-top: 0.5rem;">Cumilla, Bangladesh | GPA: 3.67</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Secondary School Certificate (Science)</h3>
+                <div class="company">Cumilla Modern High School</div>
+                <span class="duration">2011 - 2013</span>
+                <p style="color: var(--secondary); margin-top: 0.5rem;">Cumilla, Bangladesh | GPA: 4.75</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates">
+        <h2 class="section-title">Certificates & Achievements</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Time Management</h3>
+                    <p>E-Learning Academy, Department of Learning & Development, Quantanite</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fas fa-table"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Google Spreadsheet</h3>
+                    <p>E-Learning Academy, Department of Learning & Development, Quantanite</p>
+                </div>
+            </div>
+<a href="https://docs.google.com/document/d/1gqU8VzMLIj0SlPO4twcoOY_XZi5kaekq/edit?usp=sharing&ouid=112277407687481985241&rtpof=true&sd=true" target="_blank" >
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Graphic Design</h3>
+                    <p>Coders Trust Academy, Department of Graphic Design</p>
+                </div>
+            </div>
+</a>
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Annual Superstar 2023</h3>
+                    <p>Quantanite</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- References Section -->
+    <section id="references">
+        <h2 class="section-title">References</h2>
+        <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+            <div class="project-card">
+                <div class="project-content" style="padding: 2rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Simanta Sarkar</h3>
+                    <p style="font-weight: 600; color: var(--dark); margin-bottom: 0.5rem;">Manager, Department of Operation</p>
+                    <p style="color: var(--secondary); margin-bottom: 1rem;">Quantanite</p>
+                    <a href="mailto:Simanta.sarker@quantanite.com" style="color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-envelope"></i> Simanta.sarker@quantanite.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content" style="padding: 2rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Mohammad Fakrul Islam Roman</h3>
+                    <p style="font-weight: 600; color: var(--dark); margin-bottom: 0.5rem;">Senior Associate, Department of Learning & Development</p>
+                    <p style="color: var(--secondary); margin-bottom: 1rem;">Quantanite</p>
+                    <a href="mailto:fakhrulislamroman1@gmail.com" style="color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-envelope"></i> fakhrulislamroman1@gmail.com
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 section-title">Contact Me</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Get in Touch</h3>
-                    <p class="text-gray-700 mb-6">Feel free to reach out for collaborations or just a friendly hello.</p>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-map-marker-alt text-blue-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium">Address</h4>
-                                <p class="text-gray-600">House #65, Road #06, DIT Project, Merul Badda, Dhaka-1212</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-phone text-blue-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium">Phone</h4>
-                                <p class="text-gray-600">+88 01646 297858</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-envelope text-blue-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium">Email</h4>
-                                <p class="text-gray-600">rafsansanny01@gmail.com</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-8">
-                        <h3 class="text-xl font-semibold mb-4">Reference</h3>
-                        <div class="bg-white p-4 rounded-lg shadow-sm">
-                            <p class="font-medium">Md. Abdur Rahman</p>
-                            <p class="text-gray-600">Assistant Director, Bangladesh Bank</p>
-                            <p class="text-gray-600">Phone: 01611 119778</p>
-                        </div>
-						<br>
-                             <div class="bg-white p-4 rounded-lg shadow-sm">
-                            <p class="font-medium">Md. Arifur Rahman</p>
-                            <p class="text-gray-600">Mobile Application Developer, Bdjobs.com Ltd.</p>
-                            <p class="text-gray-600">Phone: 01521526371</p>
-                        </div>
-                    </div>
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+		            <!-- Contact Information -->
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="mailto:rafsansanny01@gmail.com">rafsansanny01@gmail.com</a>
                 </div>
-                
-                    <form action="https://formspree.io/f/xblyzlrl" method="post">
 
-                        <div class="mb-4">
-                            <label for="name" class="block text-gray-700 mb-2">Your Name</label>
-                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div class="mb-4">
-                            <label for="email" class="block text-gray-700 mb-2">Your Email</label>
-                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div class="mb-4">
-                            <label for="subject" class="block text-gray-700 mb-2">Subject</label>
-                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div class="mb-4">
-                            <label for="message" class="block text-gray-700 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                        </div>
-                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium w-full transition duration-300">Send Message</button>
-                    </form>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <a href="tel:+8801646297858">+880 1646 297858</a>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <a href="https://linkedin.com/in/rafsan-sanny01" target="_blank">linkedin.com/in/rafsan-sanny01</a>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>Dhaka, Bangladesh</p>
+                </div>
             </div>
+            <!-- Contact Form -->
+            <div>
+                <form action="https://formspree.io/f/xblyzlrl" method="post" style="background: var(--light); padding: 2rem; border-radius: 15px; border: 1px solid var(--lighter);">
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="name" style="display: block; color: var(--text); margin-bottom: 0.5rem; font-weight: 500;">Your Name</label>
+                        <input type="text" id="name" name="name" required style="width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--lighter); border-radius: 8px; background: var(--darker); color: var(--text); font-size: 1rem; transition: border-color 0.3s;">
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="email" style="display: block; color: var(--text); margin-bottom: 0.5rem; font-weight: 500;">Your Email</label>
+                        <input type="email" id="email" name="email" required style="width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--lighter); border-radius: 8px; background: var(--darker); color: var(--text); font-size: 1rem; transition: border-color 0.3s;">
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="subject" style="display: block; color: var(--text); margin-bottom: 0.5rem; font-weight: 500;">Subject</label>
+                        <input type="text" id="subject" name="subject" required style="width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--lighter); border-radius: 8px; background: var(--darker); color: var(--text); font-size: 1rem; transition: border-color 0.3s;">
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="message" style="display: block; color: var(--text); margin-bottom: 0.5rem; font-weight: 500;">Message</label>
+                        <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--lighter); border-radius: 8px; background: var(--darker); color: var(--text); font-size: 1rem; resize: vertical; transition: border-color 0.3s;"></textarea>
+                    </div>
+                    <button type="submit" style="background: var(--primary); color: white; padding: 0.875rem 1.5rem; border-radius: 8px; font-weight: 600; width: 100%; border: none; cursor: pointer; font-size: 1rem; transition: all 0.3s;">
+                        <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i>Send Message
+                    </button>
+                </form>
+            </div>
+
+
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <h3 class="text-2xl font-bold">Rafsan Sanny</h3>
-                    <p class="text-gray-400">QA Specialist | Data Analyst | Team Leader</p>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-linkedin-in text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-facebook-f text-xl"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
-                <p>&copy; 2023 Rafsan Sanny. All rights reserved.</p>
-            </div>
-        </div>
+    <footer>
+        <p>&copy; 2025 Rafsan Sanny. All rights reserved.</p>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
-                
-                // Update active nav link
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.remove('active-nav');
-                });
-                this.classList.add('active-nav');
             });
         });
 
-        // Dark mode toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-        
-        // Check for saved theme preference or use system preference
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
-            document.body.classList.add('dark');
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 23, 42, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 23, 42, 0.95)';
+            }
+        });
+
+        // Form input focus effects
+        document.querySelectorAll('input, textarea').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.borderColor = 'var(--primary)';
+                this.style.outline = 'none';
+            });
+            input.addEventListener('blur', function() {
+                this.style.borderColor = 'var(--lighter)';
+            });
+        });
+
+        // Form submit button hover effect
+        const submitBtn = document.querySelector('button[type="submit"]');
+        if (submitBtn) {
+            submitBtn.addEventListener('mouseenter', function() {
+                this.style.background = 'var(--primary-dark)';
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '0 10px 30px rgba(59, 130, 246, 0.3)';
+            });
+            submitBtn.addEventListener('mouseleave', function() {
+                this.style.background = 'var(--primary)';
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            });
         }
-        
-        themeToggle.addEventListener('click', function() {
-            document.body.classList.toggle('dark');
-            const theme = document.body.classList.contains('dark') ? 'dark' : 'light';
-            localStorage.setItem('theme', theme);
-        });
-
-        // Update active nav link on scroll
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section');
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.clientHeight;
-                
-                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-                    currentSection = '#' + section.getAttribute('id');
-                }
-            });
-            
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active-nav');
-                if (link.getAttribute('href') === currentSection) {
-                    link.classList.add('active-nav');
-                }
-            });
-        });
     </script>
 </body>
 </html>
